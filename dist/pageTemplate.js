@@ -20,9 +20,9 @@ const managerCard = (data) => {
     </section>`
     
     };
-
+    
     const engineerCard = (data) => {
-
+    
         return `<section>
             <div class="container">
                 <div class="engineer">
@@ -42,9 +42,9 @@ const managerCard = (data) => {
             </div>
         </section>`;
         };
-
-        const internCard = (data) => {
     
+        const internCard = (data) => {
+        
             return `
         <section>
             <div class="container">
@@ -89,7 +89,7 @@ const managerCard = (data) => {
        
     };
     
-
+  
     const pageTemplate = (data) => {
         
         console.log(data);
@@ -124,5 +124,3 @@ const managerCard = (data) => {
     };
     
     module.exports = pageTemplate;
-  
-    
