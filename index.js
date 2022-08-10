@@ -75,6 +75,131 @@ const managerProfile = function () {
 };
 
 
+const menu = function () {
+  
+  return  inquirer.prompt([
+        {
+        type: 'list',
+        message: 'What employee would you like to add?',
+        name: 'role',
+        choices: ['Engineer', 'Intern']
+        },
+        {
+            type: 'text',
+            name: 'name',
+            message: 'What is the name of the employee?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter a name!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'text',
+            name: 'id',
+            message: 'What is the employee ID?',
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter an ID!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'text',
+            name: 'email',
+            message: 'What is the email address of the employee?',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter an email!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'text',
+            name: 'github',
+            message: 'What is GitHub username of employee?',
+            when: (input) => input.role === 'Engineer',
+            validate: github => {
+                if (github) {
+                    return true;
+                } else {
+                    console.log('You need to enter a github username!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'text',
+            name: 'school',
+            message: 'Where does the intern attend school?',
+            when: (input) => input.role === 'Intern',
+            validate: school => {
+                if (school) {
+                    return true;
+                } else {
+                    console.log('You need to enter a school!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddEmployee',
+            message: 'Would you like to add another employee?',
+            default: false
+        }
+
+    ])
+    .then(employeesData => {
+        let { name , id, email, role, github, school, confirmAddEmployee} = employeesData;
+        let employee;
+
+        if(role === 'Engineer') {
+            employee = new Engineer(name, id, email, github);
+            console.log(employee);
+        } else if (role === "Intern") {
+            employee = new Intern(name, id, email, school);
+            console.log(employee);
+        }
+        employees.push(employee);
+
+        if(confirmAddEmployee) {
+            return menu(employees)
+        } else {
+            
+            return employees;
+            
+        }
+    })
+    
+};
+
+
+
+managerProfile()
+.then(menu)
+.then(data => {
+    const pageHTML = pageTemplate(data)
+
+    fs.writeFile('./index.html', pageHTML, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Page created! Check out index.html")
+        }
+    })
+});
+
 
 
 
