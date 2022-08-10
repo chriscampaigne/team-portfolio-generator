@@ -7,5 +7,5 @@ test('creates manager object', () => {
     expect(engineer.name).toEqual(expect.any(String));
     expect(engineer.id).toEqual(expect.any(String));
     expect(engineer.email).toEqual(expect.any(String));
-    expect(engineer.officenumber).toEqual(expect.any(String));
+    expect(engineer.officeNumber).toEqual(expect.any(String));
 });
