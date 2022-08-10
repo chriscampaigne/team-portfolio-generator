@@ -24,4 +24,5 @@
   ## Questions
   If you have any questions about this projects, please contact me directly at campaignemc@gmail.com. You can view more of my projects at https://github.com/chriscampaigne.
   ## Screenshot
-  ![Screenshot](image.png)
+  ![Screenshot]
+  <img width="960" alt="team-generator" src="https://user-images.githubusercontent.com/105657642/184042644-31ae8a85-5b5a-4072-bf61-c63582725bdf.png">
