@@ -26,3 +26,5 @@
   ## Screenshot
   ![Screenshot]
   <img width="960" alt="team-generator" src="https://user-images.githubusercontent.com/105657642/184042644-31ae8a85-5b5a-4072-bf61-c63582725bdf.png">
+  ## Link to Video
+  https://drive.google.com/file/d/1pbD93tgZqjSJrnwRffcDE-HKtTvawAuM/view
